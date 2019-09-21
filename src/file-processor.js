@@ -3,18 +3,12 @@ import ConvertAccountNumber from './convert-account-number'
 
 export default class FileProcessor {
   processFile(filePath) {
-    fs.readFile(filePath, 'utf8', (err, data) => {
-      if (err !== null) {
-        return false
-      }
+    let data = fs.readFileSync(filePath, 'utf8')
 
-      const nestedArray = this.buildNestedArray(data.split("\n"))
-      nestedArray.map((accountArray) => {
-        ConvertAccountNumber.convert(accountArray)
-      })
+    const nestedArray = this.buildNestedArray(data.split("\n"))
+    return nestedArray.map((accountArray) => {
+      return ConvertAccountNumber.convert(accountArray)
     })
-    // temporary stub below because i don't actually know how to stub in javascript
-    return ['000000000', '111111111']
   }
 
   buildNestedArray(inputArray) {

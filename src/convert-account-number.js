@@ -1,9 +1,6 @@
 import * as dictionary from './number-dictionary'
 
 export default class ConvertAccountNumber {
-  // const dictionary = {
-  //   ' _ | ||_|': '0'
-  // }
   constructor(accountArray) {
     this.accountArray = accountArray
     this.individualNumbersArray = []
@@ -24,14 +21,12 @@ export default class ConvertAccountNumber {
   }
 
   chunk(string) {
-    if (string.length === 0) {
-      return ['   ', '   ', '   ']
-    }
-    return string.match(/.{1,3}/g).map((str) => str.padEnd(3, ' '))
+    let paddedString = string.padEnd(27, ' ')
+    return paddedString.match(/.{1,3}/g)
   }
 
   zipAndJoinArrays(arr, ...arrs) {
-    let letterElements = arr.map((val, i) => arrs.reduce((a, arr) => [...a, arr[i]], [val]).join('').padEnd(3, ' '));
+    let letterElements = arr.map((val, i) => arrs.reduce((a, arr) => [...a, arr[i]], [val]).join(''));
     return letterElements
   }
 

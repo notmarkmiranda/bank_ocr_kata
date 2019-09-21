@@ -25,8 +25,8 @@ describe('ConvertAccountNumber', () => {
   })
 
   describe('#chunk function', () => {
-    const string = 'xxxxxxxxx'
-    const expectedArray = ['xxx', 'xxx', 'xxx']
+    const string = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    const expectedArray = ['xxx', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx', 'xxx']
 
     it('should split a string', () => {
       expect(subject.chunk(string)).to.deep.equal(expectedArray)

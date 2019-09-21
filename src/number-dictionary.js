@@ -1,5 +1,6 @@
 const dictionary = {
-  ' _ | ||_|': '0'
+  ' _ | ||_|': '0',
+  ' |  |    ': '1'
 }
 
 export default dictionary
