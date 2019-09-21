@@ -1,3 +1,5 @@
 export default class ConvertAccountNumber {
-  static convert(accountArray) {}
+  static convert(accountArray) {
+    return '000000000'
+  }
 }
