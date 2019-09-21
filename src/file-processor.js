@@ -1,5 +1,6 @@
 import fs from 'fs'
 import ConvertAccountNumber from './convert-account-number'
+import CheckSum from './check-sum'
 
 export default class FileProcessor {
   processFile(filePath) {
@@ -7,8 +8,12 @@ export default class FileProcessor {
 
     const nestedArray = this.buildNestedArray(data.split("\n"))
     return nestedArray.map((accountArray) => {
-      return ConvertAccountNumber.convert(accountArray)
-      
+      let accountNumber = ConvertAccountNumber.convert(accountArray)
+      if (CheckSum.validate(accountNumber)) {
+        return accountNumber
+      } else {
+        return `${accountNumber} ERR`
+      }
     })
   }
 

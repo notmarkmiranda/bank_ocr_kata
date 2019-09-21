@@ -3,25 +3,26 @@ import FileProcessor from '../../src/file-processor'
 
 describe('FileProcessor', () => {
   let subject
+  
   before(() => {
     subject = new FileProcessor()
   })
 
   describe('#processFile function', () => {
     let filePathShort = './test/fixtures/account-numbers-short.txt'
-    let accountNumbersExpectedShort = ['000000000', '111111111']
+    let accountNumbersExpectedShort = ['000000000', '111111111 ERR']
     let filePathLong = './test/fixtures/account-numbers.txt'
     let accountNumbersExpectedLong = [
       '000000000', 
-      '111111111',
-      '222222222',
-      '333333333',
-      '444444444',
-      '555555555',
-      '666666666',
-      '777777777',
-      '888888888',
-      '999999999',
+      '111111111 ERR',
+      '222222222 ERR',
+      '333333333 ERR',
+      '444444444 ERR',
+      '555555555 ERR',
+      '666666666 ERR',
+      '777777777 ERR',
+      '888888888 ERR',
+      '999999999 ERR',
       '123456789',
     ]
 
