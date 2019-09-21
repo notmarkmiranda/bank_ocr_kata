@@ -8,6 +8,7 @@ export default class FileProcessor {
     const nestedArray = this.buildNestedArray(data.split("\n"))
     return nestedArray.map((accountArray) => {
       return ConvertAccountNumber.convert(accountArray)
+      
     })
   }
 

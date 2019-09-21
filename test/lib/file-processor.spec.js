@@ -8,14 +8,33 @@ describe('FileProcessor', () => {
   })
 
   describe('#processFile function', () => {
-    let filePath = './test/fixtures/account-numbers-short.txt'
-    let accountNumbersExpected = ['000000000', '111111111']
+    let filePathShort = './test/fixtures/account-numbers-short.txt'
+    let accountNumbersExpectedShort = ['000000000', '111111111']
+    let filePathLong = './test/fixtures/account-numbers.txt'
+    let accountNumbersExpectedLong = [
+      '000000000', 
+      '111111111',
+      '222222222',
+      '333333333',
+      '444444444',
+      '555555555',
+      '666666666',
+      '777777777',
+      '888888888',
+      '999999999',
+      '123456789',
+    ]
 
+    it('should process a short file and return an array of numbers', () => {
+      let accountNumbersActual = subject.processFile(filePathShort)
 
-    it('should process a file and return an array of numbers', () => {
-      let accountNumbersActual = subject.processFile(filePath)
-
-      expect(accountNumbersActual).to.deep.equal(accountNumbersExpected)
+      expect(accountNumbersActual).to.deep.equal(accountNumbersExpectedShort)
+    })
+    
+    it('should process the long file and return an array of numbers', () => {
+      let accountNumbersActual = subject.processFile(filePathLong)
+      
+      expect(accountNumbersActual).to.deep.equal(accountNumbersExpectedLong)
     })
   })
 
