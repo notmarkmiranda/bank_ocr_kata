@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+import FileProcessor from '../../src/file-processor'
 
 describe('FileProcessor', () => {
   let subject
@@ -11,9 +12,9 @@ describe('FileProcessor', () => {
     let accountNumbersExpected = ['000000000', '111111111']
 
     it('should process a file and return an array of numbers', () => {
-      accountNumbersActual = subject.processFile(filePath)
+      let accountNumbersActual = subject.processFile(filePath)
 
-      expect(accountNumbersActual).to.equal(accountNumbersExpected)
+      expect(accountNumbersActual).to.include.members(accountNumbersExpected)
     })
   })
 })
